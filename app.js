@@ -63,32 +63,32 @@ function render(){
  root.style.setProperty('--pulse-speed',`${1.5-d*.7}s`);
  document.body.dataset.phase=String(state.phase);
  if(state.phase!==lastPhase){
-  if(state.phase>0&&lastPhase>=0)toast(['','Обнаружен ещё один ритм. Наверное, это вы.','Винни рядом. Ближе, чем раньше.','Соединение с телом установлено.'][state.phase]);
+  if(state.phase>0&&lastPhase>=0)toast(['','Обнаружен ещё один ритм. Наверное, это ты.','Винни рядом. Ближе, чем раньше.','Соединение с телом установлено.'][state.phase]);
   lastPhase=state.phase;
  }
  copies.forEach(el=>{el.textContent=d>.58?el.dataset.wrong:el.dataset.copy});
- $('#pulse-status').textContent=d>.32?'Вас двое':'Всё хорошо';
- $('#pulse-caption').textContent=d>.32?'Два ритма. Одно запястье. Идеальная синхронизация.':'Ваше тело говорит. Винни умеет слушать.';
- $('#activity-title').innerHTML=d>.46?'Вы не двигались.<br>Мы двигались за вас.':'Маленькая прогулка?<br>Уже большая победа.';
- $('#map-tag').textContent=d>.34?'Маршрут построен. Вы не одни.':'Только вы и свежий воздух';
- $('#map-float').textContent=d>.44?'Кто-то держит ваш темп':'Отличное место, чтобы выдохнуть';
- $('#route-note').textContent=d>.44?'Последняя точка: рядом с вами. Расстояние: сокращается.':'Маршрут сохранён. Как и ваши маленькие победы.';
- $('#sleep-status').textContent=d>.5?'Тело отдыхало. Не всё тело.':'Вы хорошо отдохнули';
- $('#sleep-footnote').textContent=d>.55?'Не открывайте глаза в 03:14. Это мешает синхронизации.':'Всё остальное можно оставить нам.';
+ $('#pulse-status').textContent=d>.32?'Два пульса':'Всё хорошо';
+ $('#pulse-caption').textContent=d>.32?'Два ритма. Одно запястье. Идеальная синхронизация.':'Твоё тело говорит. Винни умеет слушать.';
+ $('#activity-title').innerHTML=d>.46?'Ты не двигался.<br>Мы двигались за тебя.':'Маленькая прогулка?<br>Уже большая победа.';
+ $('#map-tag').textContent=d>.34?'Маршрут построен. Ты не один.':'Только ты и свежий воздух';
+ $('#map-float').textContent=d>.44?'Кто-то держит твой темп':'Отличное место, чтобы выдохнуть';
+ $('#route-note').textContent=d>.44?'Последняя точка: рядом с тобой. Расстояние: сокращается.':'Маршрут сохранён. Как и твои маленькие победы.';
+ $('#sleep-status').textContent=d>.5?'Тело отдыхало. Не всё тело.':'Ты хорошо отдохнул';
+ $('#sleep-footnote').textContent=d>.55?'Не открывай глаза в 03:14. Это мешает синхронизации.':'Всё остальное можно оставить нам.';
  $('#coach-status').textContent=d>.65?'Уже не снаружи':'Всегда на связи';
- $('#coach-last').textContent=d>.75?'Я сказал: не останавливайтесь.':'Не останавливайтесь.';
- $('#move-label').textContent=d>.5?'Мы сегодня молодцы':'Вы сегодня молодец';
+ $('#coach-last').textContent=d>.75?'Я сказал: не останавливайся.':'Не останавливайся.';
+ $('#move-label').textContent=d>.5?'Мы сегодня молодцы':'Ты сегодня молодец';
  $('#oxygen').innerHTML=d>.8?'—<span>%</span>':'98<span>%</span>';
  $('#watch-label').textContent=state.ended?'мы уже внутри':d>.72?'шагов от себя':'шагов к себе';
- $('#price').textContent=d>.73?'Ваш ритм':'6 990 ₽';
+ $('#price').textContent=d>.73?'Твой ритм':'6 990 ₽';
  $('#price-note').textContent=d>.73?'оплата уже внутри':'один раз. и навсегда.';
  $('#purchase-small').textContent=d>.73?'Возврат к прежней жизни недоступен':'Возврат в течение 30 дней*';
  $('#terms').textContent=d>.73?'*Браслет не согласился.':'*При условии, что браслет согласится.';
  if(!state.ended){
-  $('#last-title').textContent=d>.95?'У нас теперь один ритм.':'Ваш новый ритм.';
-  $('#last-copy').textContent=d>.95?'Вы ведь тоже его чувствуете? С внутренней стороны.':'Вы ведь тоже его чувствуете?';
+  $('#last-title').textContent=d>.95?'У нас теперь один ритм.':'Твой новый ритм.';
+  $('#last-copy').textContent=d>.95?'Ты ведь тоже его чувствуешь? С внутренней стороны.':'Ты ведь тоже его чувствуешь?';
  }
- document.title=document.hidden&&d>.4?'Винни ждёт ваш следующий шаг.':state.ended?'Винни — не снимай.':d>.8?'Винни — мы под вашей кожей':d>.5?'Винни — второй пульс обнаружен':startTitle;
+ document.title=document.hidden&&d>.4?'Винни ждёт твой следующий шаг.':state.ended?'Винни — не снимай.':d>.8?'Винни — мы под твоей кожей':d>.5?'Винни — второй пульс обнаружен':startTitle;
  updateAudio();
 }
 function tick(now){
@@ -107,7 +107,7 @@ setInterval(()=>tick(performance.now()),1000);
 let hiddenAt=0;
 document.addEventListener('visibilitychange',()=>{
  if(document.hidden){hiddenAt=performance.now();render();if(audioContext)audioContext.suspend().catch(()=>{})}
- else{lastTick=performance.now();render();if(state.sound&&audioContext)audioContext.resume().catch(()=>{});if(state.dread>.4&&performance.now()-hiddenAt>1500)toast('Вы вернулись. Ваш пульс никуда не уходил.')}
+ else{lastTick=performance.now();render();if(state.sound&&audioContext)audioContext.resume().catch(()=>{});if(state.dread>.4&&performance.now()-hiddenAt>1500)toast('Ты вернулся. Твой пульс никуда не уходил.')}
 });
 $$('.swatch').forEach(button=>button.addEventListener('click',()=>{
  const choices={sky:['#84cef1','#338dbb','Небо'],mint:['#a1dbc2','#62a58a','Мята'],cloud:['#e9eff0','#9baeb7','Облако']};
@@ -127,12 +127,12 @@ $$('[data-workout]').forEach(button=>button.addEventListener('click',()=>{
 }));
 function clearBreathing(){breathTimers.forEach(clearTimeout);breathTimers=[]}
 $('#breathe').addEventListener('click',()=>{
- clearBreathing();const button=$('#breathe');button.disabled=true;button.textContent='Вдохните';$('#breath-caption').textContent='Медленно. Вы никуда не опаздываете.';
- breathTimers.push(setTimeout(()=>{button.textContent='Выдохните';$('#breath-caption').textContent=state.dread>.45?'Кто-то выдохнул раньше вас.':'Отпустите всё лишнее.'},4000));
+ clearBreathing();const button=$('#breathe');button.disabled=true;button.textContent='Вдохни';$('#breath-caption').textContent='Медленно. Ты никуда не опаздываешь.';
+ breathTimers.push(setTimeout(()=>{button.textContent='Выдохни';$('#breath-caption').textContent=state.dread>.45?'Кто-то выдохнул раньше тебя.':'Отпусти всё лишнее.'},4000));
  breathTimers.push(setTimeout(()=>{button.textContent='Ещё один вдох?';button.disabled=false;$('#breath-caption').textContent=state.dread>.45?'Теперь попробуем дышать вместе.':'Уже немного легче.'},8000));
 });
 $('#demo').addEventListener('click',()=>{
- state.started=true;startAudio();toast('Просто дышите. Винни подстроится под ваш ритм.');
+ state.started=true;startAudio();toast('Просто дыши. Винни подстроится под твой ритм.');
  $('#rhythm').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});
  $('#demo').textContent='Ритм найден';
 });
@@ -145,13 +145,13 @@ function finish(){
  if(state.ended)return;
  state.ended=true;state.dread=1;document.body.classList.add('ended');
  $('#last-eyebrow').textContent='ТРЕНИРОВКА ЗАВЕРШЕНА. СВЯЗЬ — НЕТ.';
- $('#last-title').textContent='Вы больше не один.';
- $('#last-copy').textContent='Этот пульс теперь тоже ваш.';
+ $('#last-title').textContent='Ты больше не один.';
+ $('#last-copy').textContent='Этот пульс теперь тоже твой.';
  $('#finish').textContent='Отключение недоступно';$('#finish').disabled=true;
- $('#final-secret').textContent='Пожалуйста, не пытайтесь найти застёжку.';
+ $('#final-secret').textContent='Пожалуйста, не пытайся найти застёжку.';
  $('#watch-label').textContent='мы уже внутри';
  const scare=$('#scare');scare.classList.add('on');playScare();
- setTimeout(()=>{scare.classList.remove('on');toast('Цель достигнута. Вы больше не один.')},900);
+ setTimeout(()=>{scare.classList.remove('on');toast('Цель достигнута. Ты больше не один.')},900);
  render();
 }
 let audioContext,master,pad,drone,noiseGain;

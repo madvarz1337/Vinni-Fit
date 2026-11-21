@@ -13,3 +13,48 @@ body[data-phase="1"] .second-beat,body[data-phase="2"] .second-beat,body[data-ph
 
 @keyframes float-tracker-mobile{0%,100%{transform:rotate(-16deg) scale(.9)}50%{transform:translateY(-12px) rotate(-13deg) scale(.9)}}
 @media(max-width:760px) and (prefers-reduced-motion:reduce){.tracker{transform:rotate(-16deg) scale(.9)}}
+
+/* Keep the story readable as the product palette becomes darker. */
+:root{--muted:#536f7b}
+.intro,.hero-note,.color-picker>span{color:#476b7c}
+.float-card small{color:#496976}
+.section-heading>p,.wellness-card>p{color:var(--muted)}
+.coach-whisper{color:#426052}
+.chat-bubble{color:#365761}
+.chat-bubble.mine{color:#355746}
+.chat-bubble.wrong-message,.chat-bubble.last-message{color:#803b47}
+.choose-section .eyebrow{color:#385d4d}
+.purchase-copy p,.purchase-price>span,.purchase-action small,.faq details p{color:#405e4e}
+.terms{color:#83444b}
+.faq summary:after{color:#41634f}
+.vignette{opacity:calc(var(--dread) * .28)}
+.grain{opacity:calc(var(--dread) * .04)}
+body[data-phase="3"] .choose-section{
+  --muted:#bed1bf;
+  background:#182d23;
+  color:#eef8ea;
+}
+body[data-phase="3"] .choose-section h2>span{color:#bed1bf}
+body[data-phase="3"] .choose-section .eyebrow{color:#c3debb}
+body[data-phase="3"] .purchase-card{background:#243d30;border-color:#58765d}
+body[data-phase="3"] .purchase-copy p,
+body[data-phase="3"] .purchase-price>span,
+body[data-phase="3"] .purchase-action small,
+body[data-phase="3"] .faq details p{color:#c6d8c5}
+body[data-phase="3"] .terms{color:#f3b7bd}
+body[data-phase="3"] .faq details{background:#22392c;border-color:#58765d}
+body[data-phase="3"] .faq summary:after{color:#c3debb}
+.diagnostics .eyebrow{color:#a6c9b6}
+.diagnostics h2>span{color:#afc8b8}
+.terminal-head{color:#9dbda9}
+.terminal-lines p{color:#add4b8}
+.terminal-lines p.warn{color:#d8cb9a}
+.terminal-lines p.danger,.terminal-status{color:#f0a7b0}
+.last-sticky>.eyebrow{color:#a6c7ad}
+.last-sticky>p:not(.eyebrow){color:#aec9b4}
+.final-secret{color:#f1a6b1!important}
+footer{color:#a7c4af}
+footer .brand{color:#bdd8c4}
+footer .brand-fit{color:#a7c4af}
+body[data-phase="2"] .nav nav,body[data-phase="3"] .nav nav{color:#bad0c0}
+body[data-phase="2"] .sound-control,body[data-phase="3"] .sound-control{color:#c0d7c0}
